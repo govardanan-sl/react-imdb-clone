@@ -11,10 +11,10 @@ class NavMenu extends Component {
                <ul className="menu__list r-list">
                <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Home</a></li>
                <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Featured Movies</a></li>
-               <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Top Ranked Movies</a></li>
                <li className="menu__group"> 
                     <a className="menu__link r-link text-underlined"><Search/></a>
                </li>
+               <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Top Ranked Movies</a></li>
                </ul>
                </nav>
                </div> 

@@ -82,7 +82,7 @@ DEPENDENCES
   
   .text-underlined{
     position: relative;
-    overflow: hidden;
+
   
     will-change: color;
     transition: color .25s ease-out;  
