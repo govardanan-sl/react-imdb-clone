@@ -3,8 +3,8 @@ import SearchField from 'react-search-field';
 import SearchResultCard from './SearchResultCard/SearchResultCard';
 import './styles.css';
 function Search() {
-    const [searchText,setSearchText] = useState('');
     const [isSearchOpen,setIsSearchOpen]=useState(false);
+    const [isError,setIsError]=useState(null);
     const [searchResults,setSearchResults]=useState({
         "Search": [
             {
@@ -82,7 +82,7 @@ function Search() {
         "Response": "True"
     });
 
-    const handleSearch = ()=>{
+    const handleSearch = (searchText)=>{
         var myHeaders = new Headers();
         myHeaders.append("Cookie", "__cfduid=d45fd0a3d6baf68bb869113fba7a950f31619778673");
         var requestOptions = {
@@ -90,23 +90,26 @@ function Search() {
             headers: myHeaders,
             redirect: 'follow'
         };
-        let url = "https://backend-react-json-server-auth.herokuapp.com/posts"
+        let url = "http://www.omdbapi.com/?apikey=a1a82bd6&s="+searchText
         fetch(url, requestOptions)
-        .then((res) => {
-            if(res.status!==201){
-              throw Error(res.statusText);
-            }else{
-              console.log("Posted");
+        .then(response => {
+            if(!response.ok){
+                throw Error("Could not Fetch data");
             }
+            return response.json();
+        })
+        .then(result => {
+            setSearchResults(result);
+            setIsSearchOpen(true);
+            setIsError(null);
         })
         .catch((err) => {
+            setIsError(true);
             console.log(err.message);
         });
     }
     const onSearchType= (value,e) =>{
-        setSearchText(value);
-        console.log(searchText);
-        setIsSearchOpen(true);
+        handleSearch(value);
     }
     const removeData = () =>{
         setIsSearchOpen(false);
@@ -115,7 +118,7 @@ function Search() {
         <div className="menu-search">
             {isSearchOpen&&<i class="fa fa-times" style={{ fontSize : "2.5rem" }} onClick={removeData}></i>}
             <SearchField classNames="menu-search-box" placeholder="Search Movies" onEnter={onSearchType} onSearchClick={onSearchType}/>
-            
+            {isError&&<h1>Error Occured</h1>}
             {isSearchOpen&&searchResults.Search&&searchResults.Search.map((movie)=><SearchResultCard data={movie} key={movie.imdbID}/>)}
         </div>
     )
