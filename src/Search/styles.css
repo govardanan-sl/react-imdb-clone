@@ -7,6 +7,10 @@
     max-width: 1280px;
     min-width: 1024px;
 }
+.menu-search {
+    display: flex;
+    flex-direction: column;
+}
 .movie_card {
     font-family: 'Poppins', sans-serif;
       color: #fff;
