@@ -22,9 +22,12 @@ sans-serif;
 * {
   box-sizing: border-box;
 }
-
+.home{
+  max-width: 1280px;
+  margin: auto;
+}
 body {
-  background-image: linear-gradient(to right, $regal-blue, $san-juan);
+  background-image: url("https://wallpapercave.com/wp/wp2815535.jpg");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
@@ -41,7 +44,6 @@ h1 {
 }
 
 .row {
-  max-width: 100%;
   margin: 50px auto 0;
   display: flex;
   flex-flow: row wrap;
