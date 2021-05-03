@@ -10,10 +10,13 @@ function App() {
       <div className="App">
         <NavMenu/>
         <Switch>
+          <Route exact path="/react-imdb-clone">
+            <Home/>
+          </Route>
           <Route exact path="/">
             <Home/>
           </Route>
-          <Route exact path="/movie/:id">
+          <Route path="/movie/:id">
             <MovieDetail/>
           </Route>
         </Switch>
