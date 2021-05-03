@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 function MovieCard({data}) {
+    const [isLiked,setIsLiked]=useState(false);
+    const switchLike=()=>{
+      setIsLiked(!isLiked);
+    }
     return (
-      <Link to={`/movie/${data.imdbID}`}>
         <div className="card-2 card">
           <div className="wrapper" style={
             {
@@ -20,10 +23,11 @@ function MovieCard({data}) {
                 <li>
                   <a href="#" className="fa fa-bookmark-o"></a>
                 </li>
-                <li><a href="#" className="fa fa-heart-o"><span></span></a></li>
+                <li onClick={switchLike}><a className={`fa fa-heart${isLiked?'':'-o'}`} style={{color:isLiked?'red':'white'}}><span></span></a></li>
                 <li><a>Votes <span>{data.imdbVotes}</span></a></li>
               </ul>
             </div>
+            <Link to={`/movie/${data.imdbID}`}>
             <div className="data">
               <div className="content">
                 <span className="author">{data.Director}</span>
@@ -32,9 +36,9 @@ function MovieCard({data}) {
                 <a href="#" className="button">Read more</a>
               </div>
             </div>
+            </Link>
           </div>
         </div>
-      </Link>
     )
 }
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router';
+import { FavouriteMovies } from '../Contexts/FavouriteMovies';
 import './styles.scss';
 class MovieDetail extends Component {
+    static contextType = FavouriteMovies;
     constructor(props){
         super(props);
         this.state= {
@@ -20,7 +22,7 @@ class MovieDetail extends Component {
         };
         fetch(`https://www.omdbapi.com/?apikey=a1a82bd6&i=${id}&plot=full`, requestOptions)
         .then(response => {
-           return response.json()
+           return response.json();
         })
         .then(result => {
             //console.log(result)

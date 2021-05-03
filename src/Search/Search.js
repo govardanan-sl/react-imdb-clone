@@ -114,8 +114,9 @@ function Search() {
     const removeData = () =>{
         setIsSearchOpen(false);
     }
+
     return (
-        <div className="menu-search">
+        <div className="menu-search" style={{minWidth:`${isSearchOpen?"1024px":"250px"}`}}>
             {isSearchOpen&&<i className="fa fa-times" style={{ fontSize : "2.5rem" }} onClick={removeData}></i>}
             <SearchField classNames="menu-search-box" placeholder="Search Movies" onEnter={onSearchType} onSearchClick={onSearchType}/>
             {isError&&<h1>Error Occured</h1>}
