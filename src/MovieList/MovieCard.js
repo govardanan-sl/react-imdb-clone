@@ -20,8 +20,8 @@ function MovieCard({data}) {
                 <li>
                   <a href="#" className="fa fa-bookmark-o"></a>
                 </li>
-                <li><a href="#" className="fa fa-heart-o"><span>{data.imdbVotes}</span></a></li>
-                <li><a href="#" className="fa fa-comment-o"><span>{data.comments}</span></a></li>
+                <li><a href="#" className="fa fa-heart-o"><span></span></a></li>
+                <li><a>Votes <span>{data.imdbVotes}</span></a></li>
               </ul>
             </div>
             <div className="data">

@@ -121,6 +121,7 @@ h1 {
   .text {
     height: 70px;
     margin: 0;
+    overflow: hidden;
   }
   input[type='checkbox'] {
     display: none;

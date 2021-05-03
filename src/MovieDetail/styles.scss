@@ -42,7 +42,24 @@
     -webkit-backface-visibility: hidden; 
     
   }
-  
+  .meta-score-container {
+    margin-right: 5px;
+  }
+  .meta-score{
+      padding: 3px;
+      margin-right: 2px;
+  }
+  .meta-score.favourable {
+    background-color: green;
+  }
+  .meta-score.score_mixed {
+    background-color: #C4AF3D;
+  }
+  .other-details{
+    margin-left: 35%;
+    color: white;
+    font-size: 1.1rem;
+  }
   .cover {
     position: absolute;
     top: 160px;
@@ -52,8 +69,8 @@
   }
   
   .details {
-    
-    padding: 190px 0 0 280px;
+    height: 100%;
+    padding: 40px 1px 11px;
     
     
     .title1 {
@@ -95,6 +112,12 @@
       padding-right: 7px;
     }
   
+  }
+  .column2 p {
+    max-height: 166px;
+  }
+  .column2{
+      overflow: hidden;
   }
   
   .description {

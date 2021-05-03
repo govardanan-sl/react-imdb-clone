@@ -18,7 +18,7 @@ class MovieDetail extends Component {
             headers: myHeaders,
             redirect: 'follow'
         };
-        fetch("https://www.omdbapi.com/?apikey=a1a82bd6&i="+id, requestOptions)
+        fetch(`https://www.omdbapi.com/?apikey=a1a82bd6&i=${id}&plot=full`, requestOptions)
         .then(response => {
            return response.json()
         })
@@ -44,10 +44,18 @@ class MovieDetail extends Component {
                         <a href="#"><img src={this.state.movieData.Poster} alt="cover" className="cover" /></a>        
                     <div className="hero">            
                         <div className="details">
+                            <div class="director" style={{color: "#C7C1BA",fontSize: "23px",fontWeight: "300",marginBottom: "15px"}}>{this.state.movieData.Director}</div>
                             <div className="title1">{this.state.movieData.Title}<span>{this.state.movieData.Rated}</span></div>
-                            <div className="title2">{this.state.movieData.Year}</div>            
-                            <i class="fa fa-star rating" style={{color:"#f5c518", fontSize: "1.1rem"}}><span style={{"color":"white", marginLeft: "5px"}}>{this.state.movieData.imdbRating}</span></i>
-                            <span className="likes">109 likes</span>
+                            <div className="title2">{this.state.movieData.Year}</div>
+                            <div className="other-details">
+                                <div className="meta-score-container" style={{display:'inline-block'}}>  
+                                    <span className={`meta-score ${this.state.movieData.Metascore>60?"favourable":"score_mixed"}`}>{this.state.movieData.Metascore}</span>
+                                    <span>MetaScore</span>
+                                </div>
+                                <span className="box-office"style={{marginTop: "15%",fontSize: "1.1rem"}}>{this.state.movieData.BoxOffice}</span>            
+                                <i className="fa fa-star rating" style={{color:"#f5c518", fontSize: "1.1rem"}}><span style={{"color":"white", marginLeft: "5px"}}>{this.state.movieData.imdbRating}</span></i>
+                                <span className="likes">109 likes</span>
+                           </div>
                         </div>   
                     </div>    
                     <div className="description">      
