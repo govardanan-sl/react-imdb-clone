@@ -90,7 +90,7 @@ function Search() {
             headers: myHeaders,
             redirect: 'follow'
         };
-        let url = "http://www.omdbapi.com/?apikey=a1a82bd6&s="+searchText
+        let url = "https://www.omdbapi.com/?apikey=a1a82bd6&s="+searchText
         fetch(url, requestOptions)
         .then(response => {
             if(!response.ok){

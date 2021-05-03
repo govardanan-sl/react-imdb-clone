@@ -18,7 +18,7 @@ class MovieDetail extends Component {
             headers: myHeaders,
             redirect: 'follow'
         };
-        fetch("http://www.omdbapi.com/?apikey=a1a82bd6&i="+id, requestOptions)
+        fetch("https://www.omdbapi.com/?apikey=a1a82bd6&i="+id, requestOptions)
         .then(response => {
            return response.json()
         })
