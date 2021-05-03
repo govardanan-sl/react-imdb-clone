@@ -116,10 +116,10 @@ function Search() {
     }
     return (
         <div className="menu-search">
-            {isSearchOpen&&<i class="fa fa-times" style={{ fontSize : "2.5rem" }} onClick={removeData}></i>}
+            {isSearchOpen&&<i className="fa fa-times" style={{ fontSize : "2.5rem" }} onClick={removeData}></i>}
             <SearchField classNames="menu-search-box" placeholder="Search Movies" onEnter={onSearchType} onSearchClick={onSearchType}/>
             {isError&&<h1>Error Occured</h1>}
-            {isSearchOpen&&searchResults.Search&&searchResults.Search.map((movie)=><SearchResultCard data={movie} key={movie.imdbID}/>)}
+            {isSearchOpen&&searchResults.Search&&searchResults.Search.map((movie)=><SearchResultCard data={movie} onClick={removeData} key={movie.imdbID}/>)}
         </div>
     )
 }

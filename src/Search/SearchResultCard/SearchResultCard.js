@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
-function SearchResultCard({data}) {
+function SearchResultCard({data,onClick}) {
     return (
         <div>
-        {<div className="search-result">
+        {<Link to={`/movie/${data.imdbID}`} onClick={onClick}><div className="search-result">
             <div className="result-container">
                 <div className="movie_card">
                     <div className="left">
@@ -22,7 +23,8 @@ function SearchResultCard({data}) {
                 </div>
                 </div>
             </div>
-        </div>}
+        </div>
+        </Link>}
         </div>
     )
 }

@@ -9,8 +9,8 @@ class NavMenu extends Component {
                <div className="page">
                <nav className="page__menu menu">
                <ul className="menu__list r-list">
-               <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Home</a></li>
-               <li className="menu__group"><a href="#0" className="menu__link r-link text-underlined">Featured Movies</a></li>
+               <li className="menu__group"><a href="/" className="menu__link r-link text-underlined">Home</a></li>
+               <li className="menu__group"><a href="/" className="menu__link r-link text-underlined">Featured Movies</a></li>
                <li className="menu__group"> 
                     <a className="menu__link r-link text-underlined"><Search/></a>
                </li>

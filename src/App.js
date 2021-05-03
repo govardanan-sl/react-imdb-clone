@@ -1,13 +1,24 @@
 import './App.css';
 import Home from './Home/Home';
 import NavMenu from './NavMenu/NavMenu';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import MovieDetail from './MovieDetail/MovieDetail';
 
 function App() {
   return (
-    <div className="App">
-      <NavMenu/>
-      <Home></Home>
-    </div>
+    <Router>
+      <div className="App">
+        <NavMenu/>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route exact path="/movie/:id">
+            <MovieDetail/>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

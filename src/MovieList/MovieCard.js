@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 function MovieCard({data}) {
     return (
+      <Link to={`/movie/${data.imdbID}`}>
         <div className="card-2 card">
           <div className="wrapper" style={
             {
@@ -32,6 +34,7 @@ function MovieCard({data}) {
             </div>
           </div>
         </div>
+      </Link>
     )
 }
 
