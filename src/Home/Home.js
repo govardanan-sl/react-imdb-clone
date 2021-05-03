@@ -3,7 +3,6 @@ import './styles.scss'
 import 'font-awesome/css/font-awesome.min.css';
 import MovieCard from '../MovieList/MovieCard';
 class Home extends Component {
- 
   render() {
     const data=[
       {

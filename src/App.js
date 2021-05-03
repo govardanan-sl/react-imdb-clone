@@ -8,7 +8,6 @@ import Favourites from './Favourites/Favourites';
 import FavouriteMoviesContextProvider from './Contexts/FavouriteMovies';
 
 function App() {
-  const [favourites,setFavourites]= useState([]);
   return (
     <Router>
       <div className="App">
@@ -22,7 +21,7 @@ function App() {
               <Home/>
             </Route>
             <Route path="/favourites">
-              <Favourites data={favourites}/>
+              <Favourites/>
             </Route>
             <Route path="/movie/:id">
               <MovieDetail/>

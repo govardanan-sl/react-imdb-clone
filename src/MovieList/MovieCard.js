@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FavouriteMovies } from '../Contexts/FavouriteMovies';
 import './styles.scss';
 function MovieCard({data}) {
     const [isLiked,setIsLiked]=useState(false);
+    const {addMovie,removeMovie}=useContext(FavouriteMovies);
     const switchLike=()=>{
       setIsLiked(!isLiked);
+      isLiked?removeMovie(data.imdbID):addMovie(data);
     }
     return (
         <div className="card-2 card">
@@ -23,7 +26,7 @@ function MovieCard({data}) {
                 <li>
                   <a href="#" className="fa fa-bookmark-o"></a>
                 </li>
-                <li onClick={switchLike}><a className={`fa fa-heart${isLiked?'':'-o'}`} style={{color:isLiked?'red':'white'}}><span></span></a></li>
+                <li onClick={switchLike}><i className={`fa fa-heart${isLiked?'':'-o'}`} style={{color:isLiked?'red':'white'}}><span></span></i></li>
                 <li><a>Votes <span>{data.imdbVotes}</span></a></li>
               </ul>
             </div>

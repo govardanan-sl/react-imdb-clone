@@ -9,7 +9,8 @@ class MovieDetail extends Component {
         this.state= {
             movieData : null,
             isError:null,
-            isLoading:false
+            isLoading:false,
+            isLiked:false
         }
     }
     fetchMovieDetail = (id) =>{
@@ -50,13 +51,16 @@ class MovieDetail extends Component {
                             <div className="title1">{this.state.movieData.Title}<span>{this.state.movieData.Rated}</span></div>
                             <div className="title2">{this.state.movieData.Year}</div>
                             <div className="other-details">
+                                <div className="runtime">
+                                    <span>{this.state.movieData.Runtime}</span>
+                                </div>
                                 <div className="meta-score-container" style={{display:'inline-block'}}>  
                                     <span className={`meta-score ${this.state.movieData.Metascore>60?"favourable":"score_mixed"}`}>{this.state.movieData.Metascore}</span>
                                     <span>MetaScore</span>
                                 </div>
                                 <span className="box-office"style={{marginTop: "15%",fontSize: "1.1rem"}}>{this.state.movieData.BoxOffice}</span>            
                                 <i className="fa fa-star rating" style={{color:"#f5c518", fontSize: "1.1rem"}}><span style={{"color":"white", marginLeft: "5px"}}>{this.state.movieData.imdbRating}</span></i>
-                                <span className="likes">109 likes</span>
+                                <i onClick={()=>this.setState({isLiked:!this.state.isLiked})} className={`fa fa-heart${this.state.isLiked?'':'-o'}`} style={{color:this.state.isLiked?'red':'white',marginLeft: "2rem"}}><span></span></i>
                            </div>
                         </div>   
                     </div>    
