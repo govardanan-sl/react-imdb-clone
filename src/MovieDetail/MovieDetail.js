@@ -32,8 +32,17 @@ class MovieDetail extends Component {
                 isError:false,
                 isLoading:false
             })
+            this.checkLiked();
         })
         .catch(error => console.log('error', error));
+    }
+    checkLiked = ()=>{
+        const {likedMovies} = this.context;
+        if(this.state.movieData&&likedMovies.find((movie)=>movie.imdbID===this.state.movieData.imdbID)){
+          this.setState({
+              isLiked:true
+          })
+        }
     }
     componentDidMount(){
         const id = this.props.match.params.id;

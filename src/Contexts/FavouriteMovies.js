@@ -16,6 +16,14 @@ class FavouriteMoviesContextProvider extends Component {
             likedMovies:this.state.likedMovies.filter((movie)=>movie.imdbID!==id)
         })
     }
+    componentDidUpdate(){
+        localStorage.setItem("favouriteMovie",JSON.stringify(this.state.likedMovies));
+    }
+    componentWillMount(){
+        if(JSON.parse(localStorage.getItem("favouriteMovie"))){
+            this.setState({likedMovies:JSON.parse(localStorage.getItem("favouriteMovie"))});
+        }
+    }
     render() {
         return (
             <FavouriteMovies.Provider value={{...this.state,addMovie:this.addMovie,removeMovie:this.removeMovie}}>

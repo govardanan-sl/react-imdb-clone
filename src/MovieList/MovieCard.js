@@ -1,14 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FavouriteMovies } from '../Contexts/FavouriteMovies';
 import './styles.scss';
 function MovieCard({data}) {
     const [isLiked,setIsLiked]=useState(false);
-    const {addMovie,removeMovie}=useContext(FavouriteMovies);
+    const {addMovie,removeMovie,likedMovies}=useContext(FavouriteMovies);
+    const checkLiked = ()=>{
+      if(likedMovies&&likedMovies.find((movie)=>movie.imdbID===data.imdbID)){
+        setIsLiked(true);
+      }
+    }
     const switchLike=()=>{
       setIsLiked(!isLiked);
       isLiked?removeMovie(data.imdbID):addMovie(data);
     }
+    useEffect(() => {
+     checkLiked();
+    }, [])
     return (
         <div className="card-2 card">
           <div className="wrapper" style={
