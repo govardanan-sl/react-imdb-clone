@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function SearchResultCard({data,onClick}) {
     return (
         <div>
-        {<Link to={`/movie/${data.imdbID}`} onClick={onClick}><div className="search-result">
+        {<Link to={`/search/movie/${data.imdbID}`} onClick={onClick}><div className="search-result">
             <div className="result-container">
                 <div className="movie_card">
                     <div className="left">

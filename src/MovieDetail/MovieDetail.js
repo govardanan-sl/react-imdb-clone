@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useContext } from 'react'
 import {withRouter} from 'react-router';
 import { FavouriteMovies } from '../Contexts/FavouriteMovies';
 import './styles.scss';
@@ -40,6 +40,7 @@ class MovieDetail extends Component {
         this.fetchMovieDetail(id);
     }
     render() {
+        const {addMovie,removeMovie}=this.context;
         return (
             <div>
                 {this.state.movieData&&<div className="movie-card">
@@ -60,7 +61,13 @@ class MovieDetail extends Component {
                                 </div>
                                 <span className="box-office"style={{marginTop: "15%",fontSize: "1.1rem"}}>{this.state.movieData.BoxOffice}</span>            
                                 <i className="fa fa-star rating" style={{color:"#f5c518", fontSize: "1.1rem"}}><span style={{"color":"white", marginLeft: "5px"}}>{this.state.movieData.imdbRating}</span></i>
-                                <i onClick={()=>this.setState({isLiked:!this.state.isLiked})} className={`fa fa-heart${this.state.isLiked?'':'-o'}`} style={{color:this.state.isLiked?'red':'white',marginLeft: "2rem"}}><span></span></i>
+                                <i onClick={()=>{
+                                        this.state.isLiked?removeMovie(this.state.movieData.imdbID):addMovie(this.state.movieData);
+                                        this.setState({
+                                            isLiked:!this.state.isLiked
+                                        });
+
+                                    }} className={`fa fa-heart${this.state.isLiked?'':'-o'}`} style={{color:this.state.isLiked?'red':'white',marginLeft: "2rem"}}><span></span></i>
                            </div>
                         </div>   
                     </div>    
