@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import './styles.scss'
 import 'font-awesome/css/font-awesome.min.css';
 import MovieCard from '../MovieList/MovieCard';
+import Masonry from 'react-masonry-component';
+const masonryOptions = {
+    transitionDuration: 0
+};
 class Home extends Component {
   render() {
     const data=[
@@ -350,9 +354,9 @@ class Home extends Component {
   "Response": "True"
 }];
     return (
-      <div className="row home featured">
-        {data.map((movie)=><MovieCard data={movie} key={movie.imdbID}/>)}
-      </div>
+        <Masonry options={masonryOptions}>
+            {data.map((movie)=><MovieCard data={movie} key={movie.imdbID}/>)}
+        </Masonry>
     );
   }
 }
