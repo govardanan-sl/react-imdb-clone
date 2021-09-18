@@ -47,6 +47,7 @@ class MovieDetail extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
         this.fetchMovieDetail(id);
+        //console.log('new')
     }
     render() {
         const {addMovie,removeMovie}=this.context;
