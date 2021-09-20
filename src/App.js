@@ -2,8 +2,8 @@ import './App.css';
 //import Home from './Home/Home';
 import NavMenu from './NavMenu/NavMenu';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-import MovieDetail from './MovieDetail/MovieDetail';
-import Favourites from './Favourites/Favourites';
+//import MovieDetail from './MovieDetail/MovieDetail';
+//import Favourites from './Favourites/Favourites';
 import FavouriteMoviesContextProvider from './Contexts/FavouriteMovies';
 import loadable from '@loadable/component'
 
@@ -11,9 +11,13 @@ const Home = loadable(() => import('./Home/Home'/* webpackChunkName: "Home" */),
   fallback: <div>Loading...</div>
 });
 
-// const MovieDetail = loadable(() => import('./MovieDetail/MovieDetail'/* webpackChunkName: "MovieDetail" */),{
-//   fallback: <div>Loading...</div>
-// });
+const MovieDetail = loadable(() => import('./MovieDetail/MovieDetail'/* webpackChunkName: "MovieDetail" */),{
+  fallback: <div>Loading...</div>
+});
+
+const Favourites = loadable(() => import('./Favourites/Favourites'/* webpackChunkName: "Favourites" */),{
+  fallback: <div>Loading...</div>
+});
 
 function App() {
   return (
